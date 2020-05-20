@@ -12,6 +12,10 @@ console.log(__dirname)
 console.log(path.join(__dirname,'../public'))
 const app = express()
 
+//to define port for heroku
+//process.env.PORT for heroku client side and 3000 for local
+const port = process.env.PORT || 3000
+
 //define paths for express config
 //rendering the html page to the root url
 const publicDir = path.join(__dirname,'../public')
@@ -109,8 +113,8 @@ app.get('*', (req,res) => {
 
 
 //running or starting the server up,  one time job
-app.listen(3000, () => {
+app.listen(port, () => {
     //runs when the server is up
-    console.log('Server is up on port 3000')
+    console.log('Server is up on port ' +port)
 
 })
